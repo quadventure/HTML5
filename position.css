@@ -1,0 +1,77 @@
+html {
+    background: blue;
+}
+
+body {
+    background: green;
+}
+
+header {
+    background: yellow;
+    position: static;
+}
+
+.absstatic {
+    position:absolute;
+    background: lightyellow;
+    z-index:3;
+    top: 0px;
+    left: 0px;
+}
+
+.article1 {
+    background: red;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.article2rel {
+    background: purple;
+    position: relative;
+    top: 0px;
+    left: 50px;
+    z-index: 2;
+}
+
+.article2abs {
+    background: lightpink;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    z-index: 1;
+}
+
+
+.article2absafterrel {
+    background: grey;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+}
+
+article3 {
+    background: lightcyan;
+}
+
+header.article3 {
+    background:lightsalmon;
+    position:sticky;
+    top: 0px;
+}
+
+footer.article3 {
+    position:sticky;
+    background: lightseagreen;
+    bottom: 0px;
+}
+
+
+footer {
+    background: lightblue;
+    position: fixed;
+    top: 0px;
+    left: 800px;
+}
+

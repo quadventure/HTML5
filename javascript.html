@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="people"></ul>
+    <script>
+
+        const ul = document.querySelector('.people');
+
+        const people = ['mario', 'luigi', 'ryu', 'shaun', 'chun-li'];
+
+        let html = '';
+
+        people.forEach(function(person, index){
+            html += `<li style="color: purple">${person} ${index}</li>`;
+        });
+
+        console.log (html);
+
+        ul.innerHTML = html;
+
+        let ageLet = 10;
+
+        if (true) {
+            let ageLet = 20;
+            console.log('let code block context ageLet: ', ageLet);
+            console.log('let code block context this.ageLet', this.ageLet);
+        }
+
+        function printAge (age){
+//            let age = 30;
+            console.log('let function context ageLet: ', ageLet);
+            console.log('let function context this.ageLet', this.ageLet);
+        }
+
+        printAge (30);
+
+        console.log('let global context ageLet: ', ageLet);
+
+        var ageVar = 10;
+
+        if (true) {
+            var ageVar = 20;
+            console.log('var code block context ageVar: ', ageVar);
+            console.log('var code block context this.ageVar', this.ageVar);
+        }
+
+        function printAgeV (ageVar){
+            console.log('var function context ageVar: ', ageVar);
+            console.log('var function context this.ageVar', this.ageVar);
+        }
+
+        printAgeV (30);
+
+        console.log('var global context ageVar: ', ageVar);
+
+// function declaration - alway setnt to the top of all javascript code independently of position on the code
+
+        fDec(); // works because the function declaration is alway on top (hoisting)
+
+        function fDec () {
+            console.log('function declaration');
+        } // withou semi-collon
+
+        fDec();
+
+// function expression - normal flow of code executing
+
+//        fExp (); // do not work because must be after the function expression
+
+        const fExp = function() {
+            console.log('function expression');
+        }; // with semi-collon
+
+        fExp ();
+
+// function expression with return
+
+        const fExpRet = function (a, b) {
+            return (a * b);
+        };
+
+        console.log ('Area: ', fExpRet (5,10));
+
+// arrow function
+
+        const fExpRetArrow = (a, b) => {
+            return (a * b);
+        };
+
+        console.log ('Area arrow:', fExpRetArrow(3, 12));
+
+// arrow function with 1 parameter simplification
+
+const fExpRetArrowSimple = a => (a * 2);
+
+        console.log ('Area arrow simple:', fExpRetArrowSimple(3));
+
+// var is a global context variable
+
+if (true) {
+    var aVar = 1;
+    console.log('aVar context inside code block', aVar);
+}
+
+console.log ('aVar context outside code block', aVar);
+
+
+        var var1;
+        let var2;
+        const var3 = [1,2,3,4,5];
+
+        var1 = 1;
+        var2 = 'abc';
+
+        var3.forEach ((matriz) => {
+            console.log (matriz);
+            document.write(`<p>array.forEach ${matriz}</p>`);
+        });
+
+        for (i of var3) {
+            console.log (i);
+            document.write("<p>for i of ..." + i + "</p>");
+        }
+
+        for (let i; i < var3.length; i++) {
+            document.write(`<p>for normal ${var3[i]}</p>`);
+        }
+
+        function somar (num1, num2) {
+            return num1 + num2;
+        }
+
+        let resultado = somar (10,5);
+
+        console.log (resultado);
+        document.write ("<p>" + resultado +"</p>");
+
+        let somar2 = (num1, num2) => {
+            return num1 + num2;
+        }
+
+        let resultado2 = somar2 (15, 30);
+
+        console.log (resultado2);
+        document.write("<p>" + resultado2 +"</p>");
+
+        let a1 = new Array ('a','b','c');
+        console.log (a1);
+        document.write("<p> Array " + a1 +"</p>");
+
+        let a2 = ['c','d','e'];
+        a2.push ('f');
+
+        console.log (a2);
+        document.writeln("<p>Array " + a2 +"</p>");
+        console.dir (a2);
+        document.writeln("<p>Array " + a2 +"</p>");
+        console.log (a2[0]);
+        document.write("Elementos <p>" + a2[0] +"</p>");
+        console.log (a2[1]);
+        document.write("<p>" + a2[1] +"</p>");
+        console.log (a2[2]);
+        document.write ("<p>" + a2[2] +"</p>");
+
+        a1.forEach (function(letras) {
+            console.log ('letras: ' + letras);
+            document.write('<p>forEach letras: ' + letras +"</p>");
+        });
+
+        for (let letras of a2) {
+            console.log (letras);
+            document.writeln ("<p>for letras:" + letras +"</p>");
+        }
+
+        let o1 = {
+            nombre: 'nombre',
+            apellido: 'apellido',
+            edad: 18,
+            nombre_completo: function () {
+                return (this.nombre + ' ' + this.apellido);
+            },
+            m_apellido () {
+                return (this.apellido);
+            },
+            m_nombre: () => {
+                // will not work properly because arrow function maintain the context that called this method (window)
+                // not the object called
+                console.log ('o1 arrow function ', this.nombre);
+                return (this.nombre);
+            }
+        }
+
+// add property
+        o1.newprop = 10;
+        console.log (o1.newprop);
+        document.write (o1.newprop);
+
+        console.log(o1.m_nombre());
+// literal objects
+
+let o2 = {
+            name: "Midhuna",
+            age: 23,
+            place: "New York",
+            hobbies: ["Singing", "Reading Books"],
+            spouse: {
+                name: "Akash",
+                age: 25
+            },
+            books: [ {
+                    title: "title1",
+                    subject: "subject1"
+                }, {
+                    title: "title2",
+                    subject: "subject2",
+                    keywords: "keywords2"
+                }, {
+                    title: "title3",
+                    subject: "subject 3"
+                }, {
+                    title: "title 4",
+                    subject: "subject 4",
+                    year: "year4"
+            }
+            ]
+        }
+        // difference between stack (primitive) and heap (objects)
+        let o3 = o2; // creates a copy of the pointer in the stack to the same object that it is in the heap
+
+        document.writeln("<p>title in o2 " + o2.books[0].title +"</p>");
+        o2.books[0].title = "newtitle";
+        document.writeln("title in o3 " + o3.books[0].title + "</p>");
+
+        let aInt = 1;
+        let bInt = aInt;
+
+        bInt = 3;
+
+        console.log (aInt, bInt);
+
+
+
+// create new objects using prototype o class
+
+
+        console.dir (o1);
+        document.writeln ("<p>" + o1 +"</p>");
+        console.log (o1.nombre);
+        document.writeln ("<p>" + o1['nombre'] +"</p>");
+        console.log (o1.apellido);
+        document.write ("<p>" + o1.apellido +"</p>");
+        console.log (o1.nombre_completo ());
+        document.write ("<p>" + o1.nombre_completo() +"</p>");
+        console.log (o1.m_apellido ());
+        document.write ("<p>" + o1.m_apellido() +"</p>");
+        console.log (o1.m_nombre ());
+        document.write ("<p>" + o1.m_nombre() +"</p>");
+
+        class User {
+            constructor (email, name) {
+                this.email = email;
+                this.name = name;
+                this.score = 0;
+            }
+
+            login () {
+                console.log (this.email + " is logged in");
+                return this;
+            }
+
+            logout () {
+                console.log (this.email + " is logged out");
+                return this;
+            }
+
+            updateScore(){
+                this.score++;
+                console.log (this.email, ' score is ', this.score);
+                return this;
+            }
+        }
+
+        var userOne = new User ('user1@server.com','user1 name');
+        
+        userOne.login();
+        userOne.logout();
+
+// method chain must have return this on each chain method
+
+        userOne.login().updateScore().updateScore().logout();
+
+        var userTwo = new User ('user2@server.com','user2 name');
+
+        userTwo.login();
+        userTwo.logout();
+
+        var users = [userOne, userTwo];
+
+        class Admin extends User {
+            deleteUser (user) {
+                users = users.filter(u => {
+                    return u.email != user.email;
+                })
+            }
+        }
+
+        var admin = new Admin ('admin@server.com', 'admin name');
+
+        admin.deleteUser (userTwo);
+
+        // prototype
+
+        function UserProt (email, name) {
+            this.email = email;
+            this.name = name;
+            this.online = false;
+            this.login = function (){
+                console.log (this.email + ' has logged in');
+            }
+        }
+
+        userOneProt = new UserProt ('user1@server.com','user1 name');
+        userOneProt.login ();
+
+        function UserProt2 (email, name) {
+            this.email = email;
+            this.name = name;
+            this.online = false;
+        }
+
+        UserProt2.prototype.login = function (){
+            console.log (this.email + ' has logged in');
+            this.online = true;
+        }
+
+        UserProt2.prototype.logout = function (){
+            console.log (this.email + ' has logged out');
+            this.online = false;
+        }
+
+        function AdminProt (...args) {
+            console.log (args);
+            UserProt2.apply (this, args); // equiv super () in java;
+            this.role = "super admin";
+        }
+
+        AdminProt.prototype = Object.create (UserProt2.prototype);
+
+        AdminProt.prototype.deleteUser = function (u) {
+            users = users.filter (user => {
+                    return user.email != u.email;
+            return
+            })
+        }
+
+        var userOneProt = new UserProt2 ('user1@server.com','user1 name');
+        var userTwoProt = new UserProt2 ('user2@server.com','user2 name');
+        userOneProt.login ();
+
+        var adminProt = new AdminProt ('admin@server.com', 'admin name');
+
+        console.log(adminProt);
+
+        users = [userOneProt, userTwoProt, adminProt];
+
+        adminProt.deleteUser (userOneProt);
+
+    </script>
+</body>
+</html>

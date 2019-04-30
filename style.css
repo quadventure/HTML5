@@ -1,0 +1,147 @@
+/*
+a {
+    font-family: 'helvetia neue', helvetica, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    border: 2px solid rgba(0,0,200,0.6);
+    background: rgba(0,0,200,0.3);
+    color: rgba(0,0,200,,0.6);
+    box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
+    border-radius: 10px;
+    padding: 3px 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+*/
+
+/*
+a:hover {
+    border: 2px solid rgba(0,100,200,0.6);
+    background: rgba(0,100,200,0.3);
+    color: rgba(0,100,200,0.6);
+}
+*/
+
+body {
+    font-family: 'helvetia neue', arial, helvetica, sans-serif;
+    font-size: 10px;
+}
+
+#topheader, #topheaderp, #artigo1p, #artigo2p, #artigo3p {
+    cursor:pointer;
+}
+
+.menuCSS3 ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    }
+
+.menuCSS3 a {
+    display: block;
+    padding: 0.5em;
+    width: 100px;
+    text-align: center;
+    background-color:rgba(20, 20, 90, 0.3);
+    text-decoration: none;
+    color:white;
+    }
+
+.menuCSS3 a:hover {
+    background-color:blue;
+    }
+
+.menuCSS3 ul li ul {
+    display: none;
+    }
+
+.menuCSS3 ul li a:hover + ul, .menuCSS3 ul li ul:hover {
+    display: block;
+    position:absolute;
+    }
+
+    
+header {
+    padding: 15px;
+}
+
+h1 {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    clear:both;
+}
+
+
+footer:hover {
+    background-color: purple;
+}
+
+aside {
+    float:right;
+    width:10%;
+    background-color: lightgoldenrodyellow;
+    }
+
+article {
+    float:left;
+    width: 30%;
+}
+
+img {
+    width:25%;
+    margin-right: 30px;
+    align-self: auto;
+    float:left;
+}
+
+figcaption{
+    width: 25%;
+    text-align: center;
+    font-size: 0.5em;
+}
+
+#topartigo2 {
+    float: left;
+}
+
+#divartigo2p {
+    float: left;
+}
+
+
+h1:hover , h2:hover {
+    background-color:blue;
+}
+
+p:hover {
+    background:yellow;
+}
+
+table {
+    float:right;
+    width:60%;
+}
+
+td {
+    border-bottom:1px solid blue;
+}
+
+th {
+    color: white;
+    background:blue;
+    border-bottom:1px solid blue;
+}
+
+caption {
+    color: white;
+    background: darkblue;
+}
+
+li:hover {
+    background:red;
+}

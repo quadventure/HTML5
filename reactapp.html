@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+
+    <p>PÁGINA NORMAL</p>
+
+    <form>
+        <p class="nombre">The name is </p>
+        <input class="form1" type="text"/>
+        <button class="submit1">Submit</button>
+    </form>
+
+    <script>
+    const nombre = document.querySelector(".nombre");
+
+    const textNormal = document.querySelector(".form1");
+
+    const buttonSub = document.querySelector(".submit1");
+
+    buttonSub.addEventListener('click', (event) => { event.preventDefault(); });
+
+    textNormal.addEventListener('keyup', handleKeyUp);
+
+    function handleKeyUp () {
+        console.log('KeyUp');
+        nombre.innerText = `The name is ${textNormal.value}`;
+    }
+
+    </script>
+
+<!-- REACT Component -->
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        class App extends React.Component {
+            state = {
+                name: 'Crystal',
+                age: 30
+            }
+
+            handleClick = (e) => {
+                console.log(this.state);
+                this.setState ({name: "New", age: 35});
+            }
+
+            handleMouseOver = (e) => {
+                console.log(e.target, e.pageX);
+                this.setState ({name: "Name New"});
+            }
+
+            handleCopy = (e) => {
+                console.log('Try to be original');
+            }
+
+            handleChange = (e) => {
+                this.setState ({name: e.target.value});
+            }
+
+            handleSubmit = (e) => {
+                e.preventDefault();
+                console.log ('form submitted, name is ', this.state.name);
+            }
+
+            render() {
+                return(
+                    // just one group element, div in this case
+                    // JSX - Javascript
+                    <div className="app-content">
+                        <h1>REACT Component</h1>
+                        <p>{ Math.random() * 10 }</p>
+                        <p>My name is {this.state.name} and I am {this.state.age} years old</p>
+                        <button onClick={this.handleClick}>Click Me</button>
+                        <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+                        <p onCopy={this.handleCopy}>Original text</p>
+                        <form onSubmit={this.handleSubmit}>
+                            <input type="text" onChange={this.handleChange}/>
+                            <button>Submit</button>
+                        </form>
+                    </div>
+                )
+            }
+        }
+
+        // return JSX as well
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+    </script>
+
+</body>
+</html>

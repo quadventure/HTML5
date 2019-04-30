@@ -1,0 +1,86 @@
+#marca{
+    height: 50px;
+    width: 100px;
+    background-color: green;
+    text-align: center;
+  }
+  
+  #marca img{
+    width:100%;
+    height: 50px;
+  }
+  
+  #menu{
+     position: sticky;
+     top: 0px; 
+     height: 20px;
+     width: 100px;
+     background-color: red;
+  }
+
+  #footer {
+      position:sticky;
+      bottom:0px;
+      height:20px;
+      width: 100px;
+      background-color:blue;
+  }
+  
+  #contenido{
+     height: 300px;
+     width: 100px;
+     background-color: yellow;
+  }
+
+.rojostatic{
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    border: 2px green solid;
+  }
+  
+  #movidostatic{
+    left: 100px;
+  }
+
+  .bluerelative{
+    height: 100px;
+    width: 100px;
+    background-color:blue;
+    border: 2px green solid;
+  }
+  
+  #movidorelative{
+    position: relative;
+    left: 100px;
+  }
+
+  .greenabsolute{
+    height: 100px;
+    width: 100px;
+    background-color: lightgreen;
+    border: 2px green solid;
+  }
+  
+  #movidoabsolute{
+    position: absolute;
+    top: 80px;
+    left: 50px;
+  }
+
+  .yellow{
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    border: 2px green solid;
+  }
+  
+  #relativo{
+    position: relative;
+  }
+  
+  #movido{
+    position: absolute;
+    top: 40px;
+    left: 50px;
+  }

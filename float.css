@@ -1,0 +1,29 @@
+.imgfloatleft {
+    float: left;
+    margin: 10px;
+}
+
+.imgfloatright {
+    float:right;
+    margin: 10px;
+}
+
+
+.floatleftoutside {
+    float:left;
+    width:50%;
+}
+
+.floatrightoutside {
+    float:right;
+    width:50%;
+}
+
+
+.floatleftinside {
+    float:left;
+}
+
+.floatrightinside {
+    float:right;
+}
